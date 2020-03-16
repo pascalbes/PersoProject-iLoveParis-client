@@ -1,24 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+/// BASIC
+import React, { useState } from "react";
+import { Route, Switch } from "react-router-dom";
+
+/// PAGES
+import Header from "./views/Header";
+import Home from "./views/Home";
+import About from "./views/About";
+import Contact from "./views/Contact.jsx";
+import GameSelection from "./views/GameSelection.jsx";
+import Game from "./views/Game.jsx";
+// import api from "./api/APIHandler"
+
+/// STYLES
+import "./styles/App.css"
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div id="App">
+      <Header />
+      <main id="content-main">
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/about" component={About} />
+          <Route path="/contact" component={Contact} /> 
+          <Route path="/gameselection" component={GameSelection} /> 
+          <Route path="/game" component={Game} /> 
+          {/* <Route path="/topscores" component={TopScores} /> */}
+        </Switch>
+      </main>
     </div>
   );
 }
